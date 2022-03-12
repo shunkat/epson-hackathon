@@ -12,8 +12,12 @@ class Registration extends StatelessWidget {
           title: Text('Epson Hackathon Design Layout'),
         ),
         body:SlidePage(),
+<<<<<<< HEAD
       ),
     );
+=======
+      );
+>>>>>>> 8a214d4519a1c5c72ea46258df06ad4705292714
   }
 }
 
@@ -26,7 +30,10 @@ class _SlideshowState extends State<SlidePage> {
  
   // ページコントローラ PageViewの設定   /*画面の何割を占めるか*/
   final PageController controller = PageController(initialPage: 0,viewportFraction: 0.8);
+<<<<<<< HEAD
  
+=======
+>>>>>>> 8a214d4519a1c5c72ea46258df06ad4705292714
   // ページインデックス
   int currentPage = 0;
  
