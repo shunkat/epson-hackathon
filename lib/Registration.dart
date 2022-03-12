@@ -9,8 +9,7 @@ class Registration extends StatelessWidget {
           title: Text("プリンター登録"),
         ),
         body:SlidePage(),
-      ),
-    );
+      );
   }
 }
 
