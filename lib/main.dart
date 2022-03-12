@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:printer_connect/Registration.dart';
+import 'package:printer_connect/url_launch.dart';
 import 'package:flutter/rendering.dart';
 import 'package:printer_connect/url_launch.dart';
 
@@ -63,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: (){
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Registration(),
+                      MaterialPageRoute(builder: (context) => SampleUrlLauncher(),
                       )
                   );
                 },
