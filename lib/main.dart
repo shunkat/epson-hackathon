@@ -2,11 +2,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:printer_connect/Registration.dart';
 import 'package:printer_connect/url_launch.dart';
+import 'package:printer_connect/SendData.dart';
 import 'package:flutter/rendering.dart';
 import 'package:printer_connect/url_launch.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 
-void main() {
-  // debugPaintSizeEnabled = true;
+Future<void> main() async {
+  // Fireabse初期化
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -68,11 +73,19 @@ class _MyHomePageState extends State<MyHomePage> {
                         ));
                   },
                 ),
-              )
-            ],
-          );
-        },
-      ),
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SendData(),
+                      )
+                  );
+                },
+              ),
+            )
+          ],
+        );
+      },
+    ),
     );
   }
 }
