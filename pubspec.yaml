@@ -24,6 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
   webview_flutter: ^2.0.8
+  firebase_core: ^0.4.0+9
+  cloud_firestore: ^0.12.9+5
 
 
 
