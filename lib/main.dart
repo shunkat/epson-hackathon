@@ -65,23 +65,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(
                     "EpsonConncect登録済みの方",
                   ),
-                  onPressed: () {
+                  onPressed: (){
                     Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => Registration(),
-                        ));
+                        MaterialPageRoute(builder: (context) => SendData(),
+                        )
+                    );
                   },
                 ),
-                onPressed: (){
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SendData(),
-                      )
-                  );
-                },
               ),
-            )
           ],
         );
       },
