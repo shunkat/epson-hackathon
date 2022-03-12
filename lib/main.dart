@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:printer_connect/Registration.dart';
 import 'package:flutter/rendering.dart';
+import 'package:printer_connect/url_launch.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
@@ -33,5 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Registration());
+    // return Scaffold(body: SampleUrlLauncher());
   }
 }
