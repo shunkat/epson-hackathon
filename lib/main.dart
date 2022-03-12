@@ -28,6 +28,46 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Registration());
+    return Scaffold(body: OrientationBuilder(
+      builder: (context, orientation) {
+        return Row(
+          children: <Widget>[
+            SizedBox(
+              width: 250, //横幅
+              height: 300, //高さ
+              child:ElevatedButton(
+                child: Text(
+                  "EpsonConncect未登録の方\n最初はこちら"
+                ),
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Registration(),
+                      )
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              width: 250, //横幅
+              height: 300, //高さ
+              child:ElevatedButton(
+                child: Text(
+                  "EpsonConncect登録済みの方",
+                ),
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Registration(),
+                      )
+                  );
+                },
+              ),
+            )
+          ],
+        );
+      },
+    ),
+    );
   }
 }
