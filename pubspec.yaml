@@ -31,6 +31,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  url_launcher: ^6.0.20
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +49,20 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  # fonts:
+  #   - family: Noto Sans JP
+  #     fonts:
+  #       - asset: fonts/NotoSansJP-Regular.otf
+
+  assets:
+    - images/trim_img01.png
+    - images/trim_img02.png
+    - images/trim_img03.png
+    - images/trim_img04.png
+    - images/trim_img05.png
+    - images/trim_img06.png
+    - images/trim_img07.png
+    - images/trim_img08.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
