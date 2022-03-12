@@ -123,6 +123,5 @@ class _SlideshowState extends State<SlidePage> {
         );
       },
     );
->>>>>>> Stashed changes
   }
 }
