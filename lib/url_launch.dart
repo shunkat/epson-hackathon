@@ -3,18 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:core';
 
-class SampleUrlLauncher extends StatefulWidget {
+class UrlLauncher extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _SampleUrlLauncher();
+  State<StatefulWidget> createState() => _UrlLauncher();
 }
 
-class _SampleUrlLauncher extends State<SampleUrlLauncher> {
+class _UrlLauncher extends State<UrlLauncher> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('url_launcher'),
-      ),
       body: Center(
         child: RaisedButton(
           child: Text('ブラウザでURLを開く'),

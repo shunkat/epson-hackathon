@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:printer_connect/url_launch.dart';
 
 class Registration extends StatelessWidget {
   @override
@@ -33,7 +34,8 @@ class _SlideshowState extends State<SlidePage> {
     "images/trim_img05.png",
     "images/trim_img06.png",
     "images/trim_img07.png",
-    "images/trim_img08.png"
+    "images/trim_img08.png",
+    "aaa"
   ];
 
   List<String> _textList = [
@@ -44,7 +46,8 @@ class _SlideshowState extends State<SlidePage> {
     "［プリンターの登録］を選択します",
     "設定を開始するを選択します。",
     "画面に従ってプリンター登録を進めると、登録シートが印刷されます",
-    "登録シートの説明に従い、コンピューターやスマートフォン、タブレット端末を利用して登録してください。ユーザー情報が登録されると、プリンターからセットアップ情報シートが印刷されます。また、登録したメールアドレスに通知メールが送信されます。"
+    "登録シートの説明に従い、コンピューターやスマートフォン、タブレット端末を利用して登録してください。ユーザー情報が登録されると、プリンターからセットアップ情報シートが印刷されます。また、登録したメールアドレスに通知メールが送信されます。",
+    "aaa"
   ];
 
   @override
@@ -80,7 +83,6 @@ class _SlideshowState extends State<SlidePage> {
           visible: active,
           child: Container(
             decoration: BoxDecoration(
-              // color: Color.fromARGB(255, 107, 156, 247),
               border: Border.all(color: Color.fromARGB(255, 107, 156, 247)),
               borderRadius: BorderRadius.circular(17.0),
             ),
@@ -104,13 +106,6 @@ class _SlideshowState extends State<SlidePage> {
               fit: BoxFit.fitWidth,
               image: Image.asset(imagePath).image,
             ),
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: Colors.black,
-            //     offset: Offset(15, 20),
-            //     spreadRadius: 10.0,
-            //   ),
-            // ],
           ),
         ),
         Container(
@@ -127,6 +122,20 @@ class _SlideshowState extends State<SlidePage> {
     );
   }
 
+  AnimatedContainer _createFinalCardAnimate(
+      String count, String imagePath, String text, bool active) {
+    // アクティブと非アクティブのアニメーション設定値
+    final double top = active ? 100 : 200;
+    final double side = active ? 0 : 40;
+
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 500),
+      curve: Curves.easeOutQuint,
+      margin: EdgeInsets.only(top: top, bottom: 50.0, right: side, left: side),
+      child: UrlLauncher(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
@@ -135,15 +144,31 @@ class _SlideshowState extends State<SlidePage> {
       itemBuilder: (context, int currentIndex) {
         // アクティブ値
         bool active = currentIndex == currentPage;
+        String number = (currentIndex + 1).toString();
 
-        // カードの生成して返す
-        return _createCardAnimate(
-          (currentIndex + 1).toString(),
-          _imageList[currentIndex],
-          _textList[currentIndex],
-          active,
+        return Center(
+          child: ifCard(currentIndex, number, active),
         );
       },
     );
+  }
+
+  Widget ifCard(int currentIndex, String number, bool active) {
+    if (number == "9") {
+      return _createFinalCardAnimate(
+        (currentIndex + 1).toString(),
+        _imageList[currentIndex],
+        _textList[currentIndex],
+        active,
+      );
+    } else {
+      // カードの生成して返す
+      return _createCardAnimate(
+        (currentIndex + 1).toString(),
+        _imageList[currentIndex],
+        _textList[currentIndex],
+        active,
+      );
+    }
   }
 }
