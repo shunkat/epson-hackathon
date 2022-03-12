@@ -93,6 +93,22 @@
       // Service workers not supported. Just drop the <script> tag.
       loadMainDartJs();
     }
+
   </script>
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyDfPwrnvZ-npE5mVr_GNZeo0pYLCABYQnk",
+      authDomain: "hack-epson.firebaseapp.com",
+      projectId: "hack-epson",
+      storageBucket: "hack-epson.appspot.com",
+      messagingSenderId: "746381066899",
+      appId: "1:746381066899:web:107c2ac250289796694366",
+      measurementId: "G-CLEDEKZPQB"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
