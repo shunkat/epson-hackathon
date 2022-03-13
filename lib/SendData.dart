@@ -22,7 +22,6 @@ class SendData extends StatelessWidget {
 class SendDataForm extends StatefulWidget {
   @override
   _SendDataForm createState() => _SendDataForm();
-
 }
 
 class _SendDataForm extends State<SendDataForm> {
@@ -49,7 +48,6 @@ class _SendDataForm extends State<SendDataForm> {
     }); // データ
   }
 
-  String printer_id = '';
   Future<void> getLocation() async {
     // 現在の位置を返す
     Position position = await Geolocator.getCurrentPosition(
@@ -59,6 +57,7 @@ class _SendDataForm extends State<SendDataForm> {
       lng = position.longitude;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +67,8 @@ class _SendDataForm extends State<SendDataForm> {
           colors: [
             Color.fromARGB(255, 253, 95, 95).withOpacity(0.8),
             Color.fromARGB(255, 129, 0, 221).withOpacity(0.8)
-      ),    
+          ],
+        ),
       ),
       body: Container(
         decoration: BoxDecoration(
