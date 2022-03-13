@@ -1,5 +1,6 @@
 import 'package:printer_connect/CompletePage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart'; // インポート
 
@@ -21,9 +22,21 @@ class SendData extends StatelessWidget {
 class SendDataForm extends StatefulWidget {
   @override
   _SendDataForm createState() => _SendDataForm();
+
 }
 
 class _SendDataForm extends State<SendDataForm> {
+  String printer_id = '';
+  double lat = 0.0;
+  double lng = 0.0;
+
+  //画面初期化時に位置情報を取得する
+  @override
+  void initState() {
+    super.initState();
+    getLocation();
+  }
+
   void sendData() async {
     // ドキュメント作成
     await FirebaseFirestore.instance
@@ -37,6 +50,15 @@ class _SendDataForm extends State<SendDataForm> {
   }
 
   String printer_id = '';
+  Future<void> getLocation() async {
+    // 現在の位置を返す
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    setState(() {
+      lat = position.latitude;
+      lng = position.longitude;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,8 +68,7 @@ class _SendDataForm extends State<SendDataForm> {
           colors: [
             Color.fromARGB(255, 253, 95, 95).withOpacity(0.8),
             Color.fromARGB(255, 129, 0, 221).withOpacity(0.8)
-          ],
-        ),
+      ),    
       ),
       body: Container(
         decoration: BoxDecoration(
