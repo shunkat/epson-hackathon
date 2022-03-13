@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:printer_connect/url_launch.dart';
+import 'package:new_gradient_app_bar/new_gradient_app_bar.dart'; // インポート
 
 class Registration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("プリンター登録"),
+      appBar: NewGradientAppBar(
+        title: Text('プリンター登録'),
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 253, 95, 95).withOpacity(0.8),
+            Color.fromARGB(255, 129, 0, 221).withOpacity(0.8)
+          ],
+        ),
       ),
       body: SlidePage(),
     );
